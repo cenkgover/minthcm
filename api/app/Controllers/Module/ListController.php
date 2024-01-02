@@ -108,9 +108,9 @@ class ListController
             $search_manager->setQuery($this->params);
             $this->search_result = $search_manager->search(true);
 
-        } catch (BadRequest400Exception) {
+        } catch (BadRequest400Exception $e) {
             throw new HttpBadRequestException($this->request);
-        } catch (InvalidArgumentException) {
+        } catch (InvalidArgumentException $e) {
             throw new HttpInternalServerErrorException($this->request);
         }
     }
